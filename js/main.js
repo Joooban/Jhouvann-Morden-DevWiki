@@ -249,3 +249,15 @@ function escapeHtml(str) {
 
 
 window.escapeHtml = escapeHtml;
+
+
+/* ═══════════════════════════════════════════════════
+   Indicator 
+═══════════════════════════════════════════════════ */
+let indicator = document.querySelector('.indicator');
+
+window.addEventListener('scroll', () => {
+  const documentHeight = document.documentElement.scrollHeight;
+  const percent = (window.scrollY / (documentHeight - window.innerHeight)) * 100;
+  indicator.style.width = percent + '%';
+}, { passive: true });

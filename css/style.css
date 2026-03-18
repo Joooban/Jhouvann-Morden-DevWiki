@@ -136,6 +136,7 @@ body::after {
   position: sticky;
   top: 0;
   z-index: 200;
+  overflow: hidden; 
 }
 
 .hdr-inner {
@@ -275,6 +276,16 @@ body::after {
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 24px 60px;
+}
+
+.indicator {
+  height: 2px;
+  width: 0;
+  background-color: #7aaee8;
+  transition: width 0.1s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 /* Tabs */
