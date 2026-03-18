@@ -1,0 +1,1374 @@
+/* ═══════════════════════════════════════════════════════════════
+   style.css — Jhouvann Morden Portfolio (DevWiki)
+   ═══════════════════════════════════════════════════════════════
+   Table of contents:
+     1. Reset & base
+     2. CSS custom properties (design tokens)
+     3. Noise texture
+     4. Header
+     5. Layout — wrap, tabs, grid
+     6. Banners
+     7. Article — title, tags, content
+     8. Article — TOC
+     9. Article — DYK
+    10. Article — section headings
+    11. Article — skill tags
+    12. Article — citation tooltips
+    13. Article — scroll fade-in
+    14. Article — external links
+    15. Article — footer
+    16. Sidebar — infobox
+    17. Sidebar — stats box
+    18. Sidebar — see also
+    19. Talk page
+    20. History page
+    21. Shared form components
+    22. Responsive
+   ═══════════════════════════════════════════════════════════════ */
+
+
+/* ─────────────────────────────────────────────
+   1. RESET & BASE
+───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 14.5px;
+  line-height: 1.75;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+
+/* ─────────────────────────────────────────────
+   2. CSS CUSTOM PROPERTIES
+───────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg:  #1a1a1a;
+  --bg2: #232323;
+  --bg3: #2c2c2c;
+
+  /* Text */
+  --text:  #e8e6df;
+  --text2: #aaa;
+  --text3: #666;
+
+  /* Accent */
+  --link: #7aaee8;
+
+  /* Borders */
+  --border:  #363636;
+  --border2: #444;
+
+  /* Infobox header */
+  --infobox-hdr: #1e2d3e;
+
+  /* Semantic colors */
+  --warn-bg: #2a2410; --warn-bd: #b8900a; --warn-tx: #ddb93a;
+  --info-bg: #101f2e; --info-bd: #3060a0; --info-tx: #7aaee8;
+  --danger-bg: #2a1010; --danger-bd: #803030; --danger-tx: #e07070;
+  --stub-bg: #102010; --stub-bd: #306030; --stub-tx: #60c060;
+
+  /* Typography stacks */
+  --serif: 'Lora', Georgia, serif;
+  --mono:  'JetBrains Mono', 'Courier New', monospace;
+  --sans:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+}
+
+/* Light mode overrides */
+[data-theme="light"] {
+  --bg:  #f8f4ef;
+  --bg2: #ffffff;
+  --bg3: #f0ece6;
+
+  --text:  #202122;
+  --text2: #555;
+  --text3: #999;
+
+  --link: #2a53b0;
+
+  --border:  #c0bab2;
+  --border2: #d0ccc6;
+
+  --infobox-hdr: #d4e8f8;
+
+  --warn-bg: #fef9e4; --warn-bd: #c8960a; --warn-tx: #6a4e00;
+  --info-bg: #eaf3fb; --info-bd: #2a53b0; --info-tx: #1a3870;
+  --danger-bg: #fdf0f0; --danger-bd: #b03030; --danger-tx: #7a1a1a;
+  --stub-bg: #f0fdf0; --stub-bd: #308030; --stub-tx: #184a18;
+}
+
+
+/* ─────────────────────────────────────────────
+   3. NOISE TEXTURE OVERLAY
+───────────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+}
+
+
+/* ─────────────────────────────────────────────
+   4. HEADER
+───────────────────────────────────────────── */
+.hdr {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.hdr-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 52px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-orb {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--link);
+  letter-spacing: -0.5px;
+}
+
+.logo-txt {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.logo-sub {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  color: var(--text3);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Search */
+.srch {
+  flex: 1;
+  max-width: 380px;
+  position: relative;
+}
+
+.srch input {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  padding: 6px 11px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: var(--text);
+  outline: none;
+  border-radius: 2px;
+  transition: border-color 0.2s;
+}
+
+.srch input:focus {
+  border-color: var(--link);
+}
+
+.srch input::placeholder {
+  color: var(--text3);
+}
+
+.srch-drop {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 8px 11px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--text2);
+  display: none;
+  z-index: 10;
+}
+
+.srch-drop.on {
+  display: block;
+}
+
+.srch-drop a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.srch-drop a:hover {
+  text-decoration: underline;
+}
+
+/* Header tools */
+.hdr-tools {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.hdr-btn {
+  background: none;
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-family: var(--sans);
+  color: var(--text2);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.hdr-btn:hover {
+  background: var(--bg3);
+  color: var(--text);
+}
+
+
+/* ─────────────────────────────────────────────
+   5. LAYOUT — WRAP, TABS, GRID
+───────────────────────────────────────────── */
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  margin-top: 14px;
+  font-family: var(--sans);
+}
+
+.tab {
+  padding: 6px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-bottom: none;
+  color: var(--link);
+  background: none;
+  margin-bottom: -1px;
+  transition: background 0.15s;
+}
+
+.tab:hover {
+  background: var(--bg3);
+}
+
+.tab.on {
+  background: var(--bg);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+#talk-count {
+  font-size: 10px;
+  color: var(--text3);
+}
+
+/* Page panels */
+.pg {
+  display: none;
+}
+
+.pg.on {
+  display: block;
+}
+
+/* Two-column grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 258px;
+  gap: 24px;
+  margin-top: 14px;
+}
+
+
+/* ─────────────────────────────────────────────
+   6. BANNERS
+───────────────────────────────────────────── */
+.banner {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  padding: 9px 13px;
+  border: 1px solid;
+  border-left: 4px solid;
+  margin-bottom: 9px;
+  font-size: 12.5px;
+  font-family: var(--sans);
+  line-height: 1.55;
+
+  /* Entrance animation */
+  opacity: 0;
+  transform: translateY(-5px);
+  animation: bannerIn 0.4s ease forwards;
+}
+
+.banner:nth-child(1) { animation-delay: 0.25s; }
+.banner:nth-child(2) { animation-delay: 0.45s; }
+
+@keyframes bannerIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.b-warn {
+  background: var(--warn-bg);
+  border-color: var(--warn-bd);
+  color: var(--warn-tx);
+}
+
+.b-info {
+  background: var(--info-bg);
+  border-color: var(--info-bd);
+  color: var(--info-tx);
+}
+
+.b-stub {
+  background: var(--stub-bg);
+  border-color: var(--stub-bd);
+  color: var(--stub-tx);
+}
+
+.banner b {
+  font-weight: 600;
+}
+
+.banner a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.bico {
+  font-size: 18px;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.banner-date {
+  color: var(--text3);
+}
+
+.el:hover::after {
+  content: "edits require approval from the original author, he may or may not respond.";
+  position: absolute;
+  bottom: 120%;
+  left: 0;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  font-size: 11px;
+  font-family: var(--sans);
+  padding: 5px 9px;
+  white-space: nowrap;
+  z-index: 50;
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+.el {
+  position: relative;
+}
+
+
+/* ─────────────────────────────────────────────
+   7. ARTICLE — TITLE, TAGS, CONTENT
+───────────────────────────────────────────── */
+
+/* Animated title */
+.wiki-title {
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 400;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 5px;
+  margin: 12px 0 9px;
+  line-height: 1.3;
+  min-height: 44px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 26px;
+  background: var(--text);
+  margin-left: 1px;
+  vertical-align: middle;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Tags row */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 12px;
+  font-family: var(--sans);
+}
+
+.tag {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  padding: 1px 8px;
+  font-size: 11.5px;
+  color: var(--text2);
+}
+
+/* Content prose */
+.wc p {
+  margin-bottom: 11px;
+  font-size: 14.5px;
+  line-height: 1.78;
+}
+
+.wc a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.wc a:hover {
+  text-decoration: underline;
+}
+
+.wc b {
+  font-weight: 700;
+}
+
+.wc i, .wc em {
+  font-style: italic;
+}
+
+.wc ul {
+  padding-left: 22px;
+  margin: 6px 0 11px;
+}
+
+.wc ul li {
+  margin: 4px 0;
+  line-height: 1.65;
+}
+
+.wc ul a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.wc ul a:hover {
+  text-decoration: underline;
+}
+
+
+/* ─────────────────────────────────────────────
+   8. ARTICLE — TABLE OF CONTENTS
+───────────────────────────────────────────── */
+.toc {
+  display: inline-block;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 11px 18px;
+  margin: 12px 0 14px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  min-width: 190px;
+  max-width: 290px;
+}
+
+.toc-hd {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.toc-tog {
+  color: var(--link);
+  cursor: pointer;
+  font-weight: 400;
+  user-select: none;
+}
+
+.toc ol {
+  padding-left: 18px;
+}
+
+.toc li {
+  margin: 3px 0;
+}
+
+.toc a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+.toc ol ol {
+  padding-left: 14px;
+}
+
+
+/* ─────────────────────────────────────────────
+   9. ARTICLE — DID YOU KNOW
+───────────────────────────────────────────── */
+.dyk {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--link);
+  padding: 9px 14px;
+  margin: 12px 0 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+.dyk-lbl {
+  font-weight: 600;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text3);
+  margin-bottom: 4px;
+}
+
+
+/* ─────────────────────────────────────────────
+   10. ARTICLE — SECTION HEADINGS
+───────────────────────────────────────────── */
+.sh {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  border-bottom: 1px solid var(--border);
+  margin: 22px 0 9px;
+  padding-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.ssh {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  font-weight: 600;
+  margin: 13px 0 5px;
+  color: var(--text);
+}
+
+.el {
+  font-size: 12px;
+  color: var(--link);
+  font-family: var(--sans);
+  font-weight: 400;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.el:hover {
+  text-decoration: underline;
+}
+
+.el:hover {
+  text-decoration: underline;
+}
+
+.ssh a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.ssh a:hover {
+  text-decoration: underline;
+}
+/* ─────────────────────────────────────────────
+   11. ARTICLE — SKILL TAGS
+───────────────────────────────────────────── */
+.sk {
+  display: inline-block;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  padding: 1px 7px;
+  border-radius: 2px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--text2);
+  margin: 2px 2px 2px 0;
+}
+
+
+/* ─────────────────────────────────────────────
+   12. ARTICLE — CITATION NEEDED TOOLTIPS
+───────────────────────────────────────────── */
+.cn {
+  color: var(--danger-tx);
+  font-size: 10.5px;
+  font-family: var(--sans);
+  vertical-align: super;
+  cursor: help;
+  position: relative;
+  white-space: nowrap;
+}
+
+.cn:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 11px;
+  font-family: var(--sans);
+  padding: 5px 9px;
+  white-space: normal;
+  z-index: 50;
+  pointer-events: none;
+  max-width: 260px;
+  text-align: center;
+  line-height: 1.45;
+  border-radius: 2px;
+}
+
+
+/* ─────────────────────────────────────────────
+   13. ARTICLE — SCROLL FADE-IN
+───────────────────────────────────────────── */
+.fi {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fi.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ─────────────────────────────────────────────
+   14. ARTICLE — EXTERNAL LINKS
+───────────────────────────────────────────── */
+.extlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 8px 0;
+  font-family: var(--sans);
+}
+
+.extlinks a {
+  color: var(--link);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.extlinks a::before {
+  content: '↗ ';
+  font-size: 10px;
+}
+
+.extlinks a:hover {
+  text-decoration: underline;
+}
+
+
+/* ─────────────────────────────────────────────
+   15. ARTICLE — FOOTER
+───────────────────────────────────────────── */
+.wiki-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 28px;
+  padding-top: 13px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.85;
+}
+
+.wiki-footer a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.wiki-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-url {
+  color: var(--text2);
+}
+
+.footer-small {
+  margin-top: 4px;
+  font-size: 11px;
+}
+
+
+/* ─────────────────────────────────────────────
+   16. SIDEBAR — INFOBOX
+───────────────────────────────────────────── */
+.infobox {
+  border: 1px solid var(--border);
+  font-size: 12.5px;
+  font-family: var(--sans);
+  background: var(--bg2);
+  margin-bottom: 14px;
+}
+
+.ib-title {
+  background: var(--infobox-hdr);
+  padding: 8px 12px;
+  font-weight: 600;
+  font-size: 13px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.ib-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--bg3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.ib-photo-inner {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text3);
+  line-height: 1.8;
+}
+
+.ib-photo-hint {
+  font-size: 9px;
+}
+
+.infobox table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.infobox td {
+  padding: 5px 10px;
+  border-bottom: 0.5px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.infobox td:first-child {
+  color: var(--text2);
+  font-weight: 500;
+  width: 40%;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.infobox td a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.infobox td a:hover {
+  text-decoration: underline;
+}
+
+.ib-highlight {
+  color: var(--stub-tx);
+  font-weight: 600;
+}
+
+.ib-disputed {
+  color: var(--text3);
+  font-size: 10px;
+}
+
+.ib-links {
+  padding: 8px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.ib-links a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.ib-links a:hover {
+  text-decoration: underline;
+}
+
+
+/* ─────────────────────────────────────────────
+   17. SIDEBAR — STATS BOX
+───────────────────────────────────────────── */
+.stats-box {
+  border: 1px solid var(--border);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  padding: 10px 13px;
+  margin-bottom: 14px;
+  background: var(--bg2);
+}
+
+.sb-title {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 5px;
+}
+
+.sr {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+  color: var(--text2);
+}
+
+.sr span:last-child {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.stat-danger { color: var(--danger-tx) !important; }
+.stat-warn   { color: var(--warn-tx)   !important; }
+.stat-ok     { color: var(--stub-tx)   !important; }
+
+
+/* ─────────────────────────────────────────────
+   18. SIDEBAR — SEE ALSO
+───────────────────────────────────────────── */
+.sa-box {
+  border: 1px solid var(--border);
+  font-family: var(--sans);
+  font-size: 12px;
+  padding: 10px 13px;
+  background: var(--bg2);
+}
+
+.sa-title {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 5px;
+}
+
+.sa-box a {
+  display: block;
+  color: var(--link);
+  text-decoration: none;
+  padding: 3px 0;
+}
+
+.sa-box a:hover {
+  text-decoration: underline;
+}
+
+
+/* ─────────────────────────────────────────────
+   19. TALK PAGE
+───────────────────────────────────────────── */
+.talk-wrap {
+  max-width: 780px;
+  margin-top: 18px;
+}
+
+.talk-notice {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--link);
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+.talk-notice b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.talk-notice a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.talk-notice a:hover {
+  text-decoration: underline;
+}
+
+/* Empty state */
+.talk-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text3);
+  font-family: var(--sans);
+  font-size: 13px;
+  border: 1px dashed var(--border2);
+  margin-bottom: 20px;
+}
+
+.talk-empty-lead {
+  font-size: 15px;
+  color: var(--text2);
+  margin-bottom: 6px;
+}
+
+/* Thread display */
+.thread {
+  border: 1px solid var(--border);
+  margin-bottom: 14px;
+  background: var(--bg2);
+}
+
+.thread-hd {
+  background: var(--bg3);
+  padding: 8px 13px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.thread-date {
+  font-size: 11px;
+  color: var(--text3);
+  font-weight: 400;
+}
+
+.comment {
+  padding: 9px 13px;
+  border-bottom: 0.5px solid var(--border);
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.comment:last-child {
+  border-bottom: none;
+}
+
+.r1 {
+  padding-left: 28px;
+  border-left: 2px solid var(--border2);
+  margin-left: 13px;
+}
+
+.tu {
+  color: var(--link);
+  font-weight: 600;
+}
+
+.ts {
+  color: var(--text3);
+  font-size: 11px;
+  margin-left: 5px;
+}
+
+.sig {
+  color: var(--text3);
+  font-size: 11px;
+  font-style: italic;
+}
+
+.del-btn {
+  float: right;
+  background: none;
+  border: none;
+  color: var(--danger-tx);
+  font-size: 11px;
+  font-family: var(--sans);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+
+.del-btn:hover {
+  opacity: 1;
+}
+
+/* New thread form */
+.new-thread-form {
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  margin-bottom: 18px;
+}
+
+.ntf-hd {
+  background: var(--bg3);
+  padding: 8px 13px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ntf-tog {
+  color: var(--link);
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ntf-tog:hover {
+  text-decoration: underline;
+}
+
+.ntf-body {
+  padding: 13px;
+  display: none;
+}
+
+.ntf-body.open {
+  display: block;
+}
+
+.reply-form {
+  display: none;
+  padding: 13px;
+  border-top: 0.5px solid var(--border);
+  background: var(--bg3);
+}
+
+.reply-form.open {
+  display: block;
+}
+
+/* ─────────────────────────────────────────────
+   20. HISTORY PAGE
+───────────────────────────────────────────── */
+.hist-wrap {
+  margin-top: 18px;
+}
+
+.hist-notice {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--border2);
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.8;
+}
+
+.hist-notice b {
+  color: var(--text2);
+}
+
+.htable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 12.5px;
+}
+
+.htable th {
+  background: var(--bg3);
+  padding: 7px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  color: var(--text2);
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.htable td {
+  padding: 7px 12px;
+  border-bottom: 0.5px solid var(--border);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.htable tr:hover td {
+  background: var(--bg3);
+}
+
+.hd-date {
+  color: var(--link);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  white-space: nowrap;
+}
+
+.hd-user {
+  color: var(--link);
+}
+
+.hd-add {
+  color: var(--stub-tx);
+  font-family: var(--mono);
+  font-size: 11.5px;
+}
+
+.hd-m {
+  font-size: 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 0 4px;
+  border-radius: 2px;
+  color: var(--text3);
+}
+
+.hist-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  padding: 5px 12px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--text2);
+  cursor: pointer;
+  margin-bottom: 14px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.hist-add-btn:hover {
+  background: var(--bg3);
+  color: var(--text);
+}
+
+.hist-form {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 13px;
+  margin-bottom: 14px;
+  display: none;
+}
+
+.hist-form.open {
+  display: block;
+}
+
+.hist-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.hist-form-full {
+  margin-bottom: 10px;
+}
+
+
+/* ─────────────────────────────────────────────
+   21. SHARED FORM COMPONENTS
+   (used by both talk.js and history.js forms)
+───────────────────────────────────────────── */
+.ntf-row {
+  margin-bottom: 10px;
+}
+
+.ntf-row label,
+.hist-form label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--text2);
+  margin-bottom: 4px;
+}
+
+.ntf-row input,
+.ntf-row textarea,
+.hist-form input,
+.hist-form select {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  padding: 7px 10px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text);
+  outline: none;
+  border-radius: 2px;
+  transition: border-color 0.2s;
+}
+
+.ntf-row input:focus,
+.ntf-row textarea:focus,
+.hist-form input:focus,
+.hist-form select:focus {
+  border-color: var(--link);
+}
+
+.ntf-row textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.ntf-hint {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 3px;
+}
+
+.ntf-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-post {
+  background: var(--link);
+  color: #fff;
+  border: none;
+  padding: 7px 18px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: opacity 0.15s;
+}
+
+.btn-post:hover {
+  opacity: 0.85;
+}
+
+[data-theme="light"] .btn-post {
+  color: #1a1a1a;
+}
+
+.btn-cancel {
+  background: none;
+  border: 1px solid var(--border2);
+  padding: 6px 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text2);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-cancel:hover {
+  background: var(--bg3);
+  color: var(--text);
+}
+
+.post-msg {
+  font-family: var(--sans);
+  font-size: 12px;
+}
+
+.msg-ok  { color: var(--stub-tx);   }
+.msg-err { color: var(--danger-tx); }
+
+
+/* ─────────────────────────────────────────────
+   22. RESPONSIVE
+───────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    order: -1;
+  }
+
+  .hdr-inner {
+    gap: 10px;
+  }
+
+  .logo-sub {
+    display: none;
+  }
+
+  .wiki-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    padding: 0 14px 40px;
+  }
+
+  .hist-form-row {
+    grid-template-columns: 1fr;
+  }
+}

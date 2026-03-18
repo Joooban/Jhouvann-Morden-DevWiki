@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jhouvann Morden — DevWiki</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════════ -->
+  <header class="hdr">
+    <div class="hdr-inner">
+
+      <a class="logo" href="#">
+        <div class="logo-orb">{∅}</div>
+        <div>
+          <div class="logo-txt">DevWiki</div>
+          <div class="logo-sub">the free developer encyclopedia</div>
+        </div>
+      </a>
+
+      <div class="srch">
+        <input type="text" id="srch-in" placeholder="Search DevWiki…" autocomplete="off">
+        <div class="srch-drop" id="srch-out"></div>
+      </div>
+
+      <div class="hdr-tools">
+        <button class="hdr-btn" id="theme-btn">Classic Mode</button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════
+       MAIN WRAPPER
+  ═══════════════════════════════════════════ -->
+  <div class="wrap">
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab on" data-tab="article">Article</button>
+      <button class="tab"    data-tab="talk">Talk <span id="talk-count"></span></button>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════
+         ARTICLE PAGE
+    ═══════════════════════════════════════ -->
+    <div id="pg-article" class="pg on">
+
+      <div class="banner b-warn">
+        <div class="bico">⚠</div>
+        <div>
+          <b>The neutrality of this article is disputed.</b>
+          The subject is suspected of having edited their own entry.
+          Relevant discussion may be found on the
+          <a href="#" data-goto-tab="talk">talk page</a>.
+          <span class="banner-date">(March 2026)</span>
+        </div>
+      </div>
+
+      <div class="banner b-info">
+        <div class="bico">ℹ</div>
+        <div>
+          <b>This article may read like a résumé.</b>
+          Please help improve it by rewriting it in an encyclopedic style —
+          or accept that this is literally the point.   
+          <span class="banner-date">(Ongoing)</span>
+        </div>
+      </div>
+
+      <!-- Article grid: main content + sidebar -->
+      <div class="grid">
+
+        <!-- ── MAIN CONTENT ── -->
+        <main>
+
+          <h1 class="wiki-title" id="wiki-ttl"></h1>
+
+          <div class="tags">
+            <span class="tag">BS Computer Science</span>
+            <span class="tag">Davao City, PH</span>
+            <span class="tag">Backend · AI/ML · AWS · IT</span>
+            <span class="tag">President's Lister</span>
+            <span class="tag">CHED Scholar</span>
+            <span class="tag">KCPFI Scholar</span>
+            <span class="tag">Project Management</span>
+            <span class="tag">Operations & Coordination</span>
+            <span class="tag">Open to opportunities</span>
+
+          </div>
+
+          <div class="wc">
+            <p>
+            <b>Jhouvann Morden</b> is a Filipino computer science student and developer
+            based in Davao City, Philippines, currently enrolled at
+            <a href="https://mcm.edu.ph" target="_blank" rel="noopener">
+            Mapúa Malayan Colleges of Mindanao (MMCM)
+            </a>.
+            His work spans <a href="#skills">backend systems</a> and
+            <a href="#skills">artificial intelligence</a>, with a growing interest in building
+            tools that solve real problems.<sup
+            class="cn"
+            data-tip="Backed by multiple deployed academic and personal projects."
+            >[citation needed]</sup>
+            </p>
+            <p>
+                While he actively develops software, his strengths and long-term inclination
+                lean toward managerial and coordination roles—handling documentation,
+                structuring workflows, and working with people to ensure systems are not only
+                built, but actually function in real-world contexts.
+            </p>
+            <p>
+              Morden has held multiple leadership positions within student organizations,
+              including two consecutive terms as Internal Vice President in separate
+              computing societies and a regional auditor role at the provincial level.
+              He is a consistent President's Lister<sup
+                class="cn"
+                data-tip="Verified. GPA 1.25 or higher, every term."
+              >[verified ✓]</sup>
+              and recipient of both the CHED and KCPFI scholarships, reflecting sustained 
+              academic performance and merit. His technical credentials include the AWS Certified 
+              AI Practitioner certification.
+            </p>
+            <p>
+              He is proficient in Filipino, Cebuano, and English, and documents a typing
+              speed of 90–120 WPM — on a good day.<sup
+                class="cn"
+                data-tip="really depends on how often he pratices."
+              >[disputed]</sup>
+            </p>
+          </div>
+
+          <!-- Table of Contents -->
+          <div class="toc fi">
+            <div class="toc-hd">
+              Contents
+              <span class="toc-tog" id="toc-tog">[hide]</span>
+            </div>
+            <div id="toc-body">
+              <ol>
+                <li><a href="#projects">Notable projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li>
+                  <a href="#leadership">Leadership &amp; organizational involvement</a>
+                  <ol>
+                    <li><a href="#leadership">Student organizations</a></li>
+                    <li><a href="#leadership">Electoral commission</a></li>
+                  </ol>
+                </li>
+                <li>
+                  <a href="#skills">Technical skills</a>
+                  <ol>
+                    <li><a href="#skills">Programming languages</a></li>
+                    <li><a href="#skills">Tools &amp; platforms</a></li>
+                    <li><a href="#skills">Knowledge areas</a></li>
+                  </ol>
+                </li>
+                <li><a href="#certs">Certifications &amp; achievements</a></li>
+                <li><a href="#personal">Personal life</a></li>
+                <li><a href="#see-also">See also</a></li>
+                <li><a href="#external">External links</a></li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Did You Know -->
+          <div class="dyk fi">
+            <div class="dyk-lbl">Did you know?</div>
+            <p>
+            …that both Internal Vice President positions held by Jhouvann Morden were
+            won uncontested — no opposing candidates ran in either election — a detail
+            he has neither confirmed nor denied is a source of pride.<sup class="cn"
+            data-tip="Unanimous. Both terms. No challengers filed.">[citation needed]</sup>
+            Additionally, his role as Regional Auditor for PSITS Davao was the result of a remarkably
+            thorough process of elimination — nominated for Vice President, then Secretary,
+            then Treasurer, before the organization collectively arrived at Auditor and
+            decided that was probably fine.<sup class="cn"
+            data-tip="VP → Secretary → Treasurer → Auditor. A journey.">[citation needed]</sup>
+
+            </p>
+          </div>
+
+          <!-- ─── NOTABLE PROJECTS ─── -->
+          <section id="projects" class="fi">
+            <div class="sh">
+              Notable projects
+              <span class="el">[edit]</span>
+            </div>
+
+            <div class="wc">
+              <p>
+                Morden's project work spans conversational AI, economic forecasting, and
+                operational systems, reflecting a tendency to pick whichever problem is
+                interesting and then build something for it anyway.
+              </p>
+            
+                <p>
+                Most of the projects were developed in collaboration with
+                <a href="https://github.com/vennDiagramm" target="_blank" rel="noopener">Marga Pilapil</a>
+                and
+                <a href="https://github.com/Lumeru" target="_blank" rel="noopener">Mel Macabenta</a>.
+            </p>
+            <hr>
+            </div>
+
+                <h3 class="ssh"> <a href="https://github.com/vennDiagramm/Group-4-System-Margatron-Admissions-Buddy" target="_blank" rel="noopener">Margatron — Admissions Buddy Chatbot</a> </h3>
+                <div class="wc">
+                <p>
+                    A web-hosted admissions chatbot for MMCM prospective students, featuring
+                    natural language processing via the Gemini API and nonsense input filtering
+                    for more reliable interaction.
+                </p>
+                <p>
+                    <span class="sk">Python</span>
+                    <span class="sk">Streamlit</span>
+                    <span class="sk">Gemini API</span>
+                    <span class="sk">NLTK</span>
+                </p>
+                </div>            
+
+            <h3 class="ssh"> <a href="https://github.com/vennDiagramm/MMCMate_An_AI_Chatbot_for_School_Policy_Assistance" target="_blank" rel="noopener">MMCMate Chatbot</a> </h3>
+            <div class="wc">
+              <p>
+                A campus information assistant built using
+                <a href="https://streamlit.io" target="_blank" rel="noopener">Streamlit</a>
+                and the
+                <a href="https://ai.google.dev" target="_blank" rel="noopener">Gemini API</a>,
+                with an <a href="https://sqlite.org" target="_blank" rel="noopener">SQLite</a>
+                backend. The system provides MMCM students with rapid access to
+                institutional information through a conversational interface.
+              </p>
+              <p>
+                <span class="sk">Python</span>
+                <span class="sk">Streamlit</span>
+                <span class="sk">Gemini API</span>
+                <span class="sk">SQLite</span>
+              </p>
+            </div>
+            
+            <h3 class="ssh"> <a href="https://github.com/Lumerurin/MPM-regional-forecasting-app" target="_blank" rel="noopener">MPM Regional Forecasting Application</a> </h3>
+            <div class="wc">
+              <p>
+                A regional economic forecasting tool integrating
+                <a href="https://facebook.github.io/prophet/" target="_blank" rel="noopener">Meta's Prophet library</a>
+                and regression models to analyze and project economic indicators
+                across regions.
+              </p>
+              <p>
+                <span class="sk">Python</span>
+                <span class="sk">Prophet</span>
+                <span class="sk">Regression models</span>
+                <span class="sk">Data visualization</span>
+              </p>
+            </div>
+
+            <h3 class="ssh"> <a href="https://github.com/Lumerurin/Lylas-Smart-Inventory-Sales" target="_blank" rel="noopener">Lylas Smart Inventory Sales</a> </h3>
+            <div class="wc">
+              <p>
+                An item tracking platform featuring stock management functionality
+                and automated alert systems for low-stock threshold detection.
+              </p>
+              <p>
+                <span class="sk">Backend systems</span>
+                <span class="sk">Database management</span>
+                <span class="sk">Automated alerting</span>
+              </p>
+            </div>
+
+            <h3 class="ssh"> <a href="https://github.com/vennDiagramm/Kitchen_Sentinel_Smart_Stove_and_Gas_Leak_Alert_System" target="_blank" rel="noopener">Kitchen Sentinel — Smart Stove &amp; Gas Leak Alert System</a> </h3>
+            <div class="wc">
+            <p>
+                A mobile companion app for real-time kitchen hazard detection targeting
+                elderly users and caregivers. Delivers persistent push notifications for
+                gas leaks, flame presence, and absent motion, paired with an ESP32
+                microcontroller reporting live sensor data to Firebase every second.
+            </p>
+            <p>
+                <span class="sk">React Native</span>
+                <span class="sk">Firebase</span>
+                <span class="sk">ESP32</span>
+                <span class="sk">IoT</span>
+                <span class="sk">Expo</span>
+            </p>
+            </div>
+            <hr>
+          </section>
+
+          <!-- ─── EDUCATION ─── -->
+          <section id="education" class="fi">
+            <div class="sh">
+              Education
+              <span class="el">[edit]</span>
+            </div>
+            <div class="wc">
+              <p>
+                Jhouvann completed his Senior High School education under the
+                <a href="https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics" target="_blank" rel="noopener">
+                  Science, Technology, Engineering, and Mathematics (STEM)
+                </a>
+                strand at the
+                <a href="https://uic.edu.ph" target="_blank" rel="noopener">
+                  University of the Immaculate Conception
+                </a>,
+                Davao City, graduating April 2023.
+              </p>
+              <p>
+                He subsequently enrolled in the
+                <b>Bachelor of Science in Computer Science</b> program at
+                <a href="https://mcm.edu.ph" target="_blank" rel="noopener">
+                  Mapua Malayan Colleges of Mindanao
+                </a>
+                in August 2023, where he remains enrolled as of 2026. He has maintained
+                a GPA of 1.25 or higher throughout his enrollment, qualifying
+                consistently for the President's List.<sup
+                  class="cn"
+                  data-tip="Verified. This one is real."
+                >[verified ✓]</sup>
+              </p>
+            </div>
+          </section>
+
+          <!-- ─── LEADERSHIP ─── -->
+          <section id="leadership" class="fi">
+            <div class="sh">
+              Leadership &amp; organizational involvement
+              <span class="el">[edit]</span>
+            </div>
+
+            <div class="wc">
+              <p>
+                Jhouvann has been notably active in computing-related student organizations
+                throughout his undergraduate career, holding executive positions in
+                multiple bodies concurrently.
+              </p>
+            </div>
+
+            <h3 class="ssh">Student organizations</h3>
+            <div class="wc">
+              <ul>
+                <li>
+                  <b>Internal Vice President</b> —
+                  Coding Organization for Digital Excellence (CODE MMCM), 2023–2024.
+                  His first executive role, held during his first year of undergraduate study.
+                </li>
+                <li>
+                  <b>Internal Vice President</b> —
+                  Computing Students Society (CSS MMCM), 2024–2025.
+                  Second consecutive VP term, different organization.
+                </li>
+                <li>
+                  <b>Auditor</b> —
+                  Philippine Society of Information Technology Students – Davao Region
+                  (PSITS), 2024–2025. A regional appointment extending organizational
+                  influence beyond the MMCM campus.
+                </li>
+              </ul>
+            </div>
+
+            <h3 class="ssh">Electoral commission</h3>
+            <div class="wc">
+              <p>
+                Since 2025, Morden has served as <b>Commissioner</b> of the MMCM
+                Commission on Elections (COMELEC), overseeing institutional electoral
+                processes. This role is ongoing as of March 2026.
+              </p>
+            </div>
+          </section>
+
+          <!-- ─── SKILLS ─── -->
+          <section id="skills" class="fi">
+            <div class="sh">
+              Technical skills
+              <span class="el">[edit]</span>
+            </div>
+
+            <h3 class="ssh">Programming languages</h3>
+            <div class="wc">
+              <p>
+                Morden's primary languages include Python, Java, C++, C#, and
+                JavaScript, along with Node.js and React for application development.
+                Database interaction is handled through SQL.
+              </p>
+              <p>
+                <span class="sk">Python</span>
+                <span class="sk">Java</span>
+                <span class="sk">C++</span>
+                <span class="sk">C#</span>
+                <span class="sk">JavaScript</span>
+                <span class="sk">Node.js</span>
+                <span class="sk">React</span>
+                <span class="sk">SQL</span>
+              </p>
+            </div>
+
+            <h3 class="ssh">Tools &amp; platforms</h3>
+            <div class="wc">
+              <p>
+                His toolchain spans version control, cloud infrastructure, content
+                management, and productivity tooling. He additionally holds video
+                editing and transcription capabilities.
+              </p>
+              <p>
+                <span class="sk">Git / GitHub</span>
+                <span class="sk">AWS</span>
+                <span class="sk">WordPress</span>
+                <span class="sk">Canva</span>
+                <span class="sk">CapCut</span>
+                <span class="sk">MS Office 365</span>
+              </p>
+            </div>
+
+            <h3 class="ssh">Knowledge areas</h3>
+            <div class="wc">
+              <p>
+                Documented areas of study and applied interest include data mining,
+                machine learning, computer networking, AWS, cybersecurity, and data science.
+              </p>
+            </div>
+
+            <h3 class="ssh">Languages &amp; other</h3>
+            <div class="wc">
+              <p>
+                Morden holds professional proficiency or higher in <b>English</b>,
+                <b>Filipino</b>, and <b>Cebuano</b>. He types at 90–120 WPM.<sup
+                  class="cn"
+                  data-tip="See Talk page. Still being debated."
+                >[disputed]</sup>
+              </p>
+            </div>
+
+            
+          </section>
+
+          <!-- ─── CERTIFICATIONS ─── -->
+          <section id="certs" class="fi">
+            <div class="sh">
+              Certifications &amp; achievements
+              <span class="el">[edit]</span>
+            </div>
+
+            <div class="wc">
+              <p>Morden holds the following verified industry certifications:</p>
+              <ul>
+                <li>
+                  <a href="https://www.credly.com/badges/685e9f6f-8788-49b5-ae7d-1ee5bc1a092f/public_url" target="_blank" rel="noopener">
+                    AWS Academy Graduate
+                  </a> — Cloud Foundations <em>(Training Badge)</em>
+                </li>
+                <li>
+                  <a href="https://www.credly.com/badges/d5e124dd-1a90-4f1b-9f56-d35e4745ba26/public_url" target="_blank" rel="noopener">
+                    AWS Academy Graduate
+                  </a> — Generative AI Foundations <em>(Training Badge)</em>
+                </li>
+                <li>
+                  <a href="https://www.credly.com/badges/0c46c37b-1deb-4f5a-896b-bdbd3ce9a0a8/public_url" target="_blank" rel="noopener">
+                    AWS Certified AI Practitioner
+                  </a> — professional-level certification validating competency
+                  in AI/ML services within the AWS ecosystem
+                </li>
+                <li>
+                  <a href="https://www.credly.com/badges/f69d34f6-e834-4cbd-8d59-f08e9c0b2719/public_url" target="_blank" rel="noopener">
+                    IT Specialist
+                  </a> — Data Analytics
+                </li>
+                <li>
+                  <a href="https://www.credly.com/badges/1f35c783-4237-4818-bbdb-ed8d5b5f7cc9/public_url" target="_blank" rel="noopener">
+                    Microsoft Office Specialist: Excel Associate
+                  </a> (Office 2019)
+                </li>
+                <li>
+                  <a href="https://www.credly.com/badges/49ac49ae-584a-48b2-925b-f52b797ad087/public_url" target="_blank" rel="noopener">
+                    Data Science Orientation
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.credly.com/badges/98fe70ff-4fe4-4b94-bc07-9e1998fa0974/public_url" target="_blank" rel="noopener">
+                    Introduction to Cybersecurity
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.credly.com/badges/0cd40283-bf2c-4303-8fc1-3174c3870999/public_url" target="_blank" rel="noopener">
+                    Networking and Storage Essentials
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <h3 class="ssh">Achievements</h3>
+            <div class="wc">
+              <p>
+                Morden is a <b>Consistent President's Lister</b>, maintaining a GPA of
+                1.25 or higher across all graded periods of enrollment at MMCM.<sup
+                  class="cn"
+                  data-tip="Genuinely verified. Zero sarcasm."
+                >[verified ✓]</sup>
+              </p>
+            </div>
+          </section>
+
+          <!-- ─── PERSONAL LIFE ─── -->
+          <section id="personal" class="fi">
+            <div class="sh">
+              Personal life
+              <span class="el">[edit]</span>
+            </div>
+            <div class="wc">
+              <p>
+                Outside of academics and organizational responsibilities, Jhouvann maintains interests in gaming
+                (<a href = "https://www.dota2.com/home" target="_blank" rel="noopener">Dota</a>, 
+                 <a href="https://www.mobilelegends.com/" target="_blank" rel="noopener">ML</a>, 
+                 <a href= "https://www.callofduty.com/mobilelegends"  target="_blank" rel="noopener">CODM</a>, 
+                 <a href="https://www.minecraft.net/" target="_blank" rel="noopener">Minecraft</a>), light novels, 
+                 <a href = " https://open.spotify.com/playlist/4C0AkY5HsEObwWTJU6680R?si=40a0a1b30e614b3d" target="_blank" rel="noopener"> music</a>
+                 , chess, anime, and her beautiful girlfriend. 
+                These are noted as formative influences on his design sensibilities as a developer.  
+              </p>
+              <p>
+                He is based in Davao City, Philippines, having completed both Senior
+                High School and his undergraduate degree at institutions within the
+                same metropolitan area.
+              </p>
+            </div>
+          </section>
+
+          <!-- ─── SEE ALSO ─── -->
+          <section id="see-also" class="fi">
+            <div class="sh">
+              See also
+              <span class="el">[edit]</span>
+            </div>
+            <div class="wc">
+              <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Impostor_syndrome" target="_blank" rel="noopener">Impostor syndrome</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Caffeine_dependence" target="_blank" rel="noopener">Caffeine dependency</a></li>
+                <li><a href="https://mcm.edu.ph/admissions/scholarships/" target="_blank" rel="noopener">President's List (academic honor)</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Davao_City" target="_blank" rel="noopener">Davao City</a></li>
+                <li><a href="#" target="_blank" rel="noopener">Sleep deprivation in software engineers</a></li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ─── EXTERNAL LINKS ─── -->
+          <section id="external" class="fi">
+            <div class="sh">
+              External links
+              <span class="el">[edit]</span>
+            </div>
+            <div class="extlinks">
+              <a href="https://github.com/Joooban" target="_blank" rel="noopener">
+                github.com/Joooban
+              </a>
+              <a href="https://linkedin.com/in/jhouvann-morden-9a7544294" target="_blank" rel="noopener">
+                LinkedIn
+              </a>
+              <a href="https://www.credly.com/users/jhouvann-morden.334fdc3a" target="_blank" rel="noopener">
+                Credly
+              </a>
+              <a href="mailto:jvanmorden@gmail.com">
+                jvanmorden@gmail.com
+              </a>
+            </div>
+          </section>
+
+          <!-- Article footer -->
+          <footer class="wiki-footer fi">
+            <p>
+              Last edited by <a href="#">Jooban_edit</a> ·
+            </p>
+            <p class="footer-small">
+              Content available under <a href="#">MIT License</a> unless otherwise noted.
+            </p>
+          </footer>
+
+        </main>
+
+        <!-- ── SIDEBAR ── -->
+        <aside class="sidebar">
+
+          <!-- Infobox -->
+          <div class="infobox">
+            <div class="ib-title">Jhouvann Morden</div>
+
+            <div class="ib-photo">
+              <div class="ib-photo-inner">
+                 <img src="assets/photo.png" alt="Jhouvann Morden" style="width:100%;display:block;">
+              </div>
+            </div>
+
+            <table>
+              <tr><td>Role</td><td>CS Student · Developer</td></tr>
+              <tr><td>Location</td><td>Davao City, PH</td></tr>
+              <tr>
+                <td>School</td>
+                <td>
+                  <a href="https://mcm.edu.ph" target="_blank" rel="noopener">MMCM</a>
+                </td>
+              </tr>
+              <tr><td>Year</td><td>3rd year (2023–present)</td></tr>
+              <tr><td>Focus</td><td>Backend · AI/ML · AWS · IT </td></tr>
+              <tr>
+                <td>GPA</td>
+                <td class="ib-highlight">1.25+ · President's List</td>
+              </tr>
+              <tr>
+                <td>Status</td>
+                <td class="ib-highlight">Open to opportunities ✓</td>
+              </tr>
+              <tr>
+                <td>WPM</td>
+                <td>90–120 <span class="ib-disputed">[disputed]</span></td>
+              </tr>
+            </table>
+
+            <div class="ib-links">
+              <a href="https://github.com/Joooban" target="_blank" rel="noopener">GitHub</a> ·
+              <a href="https://linkedin.com/in/jhouvann-morden-9a7544294" target="_blank" rel="noopener">LinkedIn</a> ·
+              <a href="https://www.credly.com/users/jhouvann-morden.334fdc3a" target="_blank" rel="noopener">Credly</a> ·
+              <a href="mailto:jvanmorden@gmail.com">Email</a> ·
+              <a href="assets/Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+
+            </div>
+          </div>
+
+          <!-- Article stats -->
+          <div class="stats-box">
+            <div class="sb-title">Article stats</div>
+            <div class="sr">
+              <span>Total edits</span>
+              <span id="st-edits">—</span>
+            </div>
+            <div class="sr">
+              <span>Citations needed</span>
+              <span id="st-cites" class="stat-danger">—</span>
+            </div>
+            <div class="sr">
+              <span>Active disputes</span>
+              <span id="st-disp" class="stat-warn">—</span>
+            </div>
+            <div class="sr">
+              <span>Verified claims</span>
+              <span id="st-veri" class="stat-ok">—</span>
+            </div>
+            <div class="sr">
+              <span>Quality rating</span>
+              <span>B-class</span>
+            </div>
+          </div>
+
+          <!-- See Also sidebar -->
+          <div class="sa-box">
+            <div class="sa-title">See also</div>
+            <a href="https://en.wikipedia.org/wiki/Impostor_syndrome" target="_blank" rel="noopener">Impostor syndrome</a>
+            <a href="https://en.wikipedia.org/wiki/Caffeine_dependence" target="_blank" rel="noopener">Caffeine dependency</a>
+            <a href="https://mcm.edu.ph/admissions/scholarships/" target="_blank" rel="noopener">President's List</a>
+            <a href="#" target="_blank" rel="noopener">Sleep deprivation</a>
+            <a href="https://en.wikipedia.org/wiki/Davao_City" target="_blank" rel="noopener">Davao City</a>
+          </div>
+
+        </aside>
+
+      </div><!-- end .grid -->
+    </div><!-- end #pg-article -->
+
+
+    <!-- ═══════════════════════════════════════
+         TALK PAGE
+    ═══════════════════════════════════════ -->
+    <div id="pg-talk" class="pg">
+      <div class="talk-wrap">
+
+        <div class="talk-notice">
+        <b>Talk page — Jhouvann Morden</b><br>
+        This is the discussion page for the article. Use this space to suggest edits,
+        raise concerns, or start a thread. Be civil.
+        <span style="float:right; font-size:11px;">
+            <a href="#" id="admin-toggle" onclick="return false;"></a>
+        </span>
+        </div>
+
+        <div class="new-thread-form">
+          <div class="ntf-hd">
+            + Start a new discussion
+            <span class="ntf-tog" id="ntf-tog">[ open ]</span>
+          </div>
+          <div class="ntf-body" id="ntf-body">
+            <div class="ntf-row">
+              <label for="ntf-title">Thread title / topic</label>
+              <input
+                type="text"
+                id="ntf-title"
+                placeholder="e.g. 'Consider adding more info on project X'..."
+              >
+            </div>
+            <div class="ntf-row">
+              <label for="ntf-user">Your name or handle</label>
+              <input type="text" id="ntf-user" placeholder="e.g. Jovanisthebest123">
+              <p class="ntf-hint">This will be displayed publicly as your signature.</p>
+            </div>
+            <div class="ntf-row">
+              <label for="ntf-comment">Your comment</label>
+              <textarea id="ntf-comment" placeholder="Write your comment here…"></textarea>
+            </div>
+            <div class="ntf-actions">
+              <button class="btn-post" id="btn-post-thread">Post thread</button>
+              <button class="btn-cancel" id="btn-cancel-thread">Cancel</button>
+              <span class="post-msg" id="post-msg"></span>
+            </div>
+          </div>
+        </div>
+
+        <div id="thread-list"></div>
+
+        <div class="talk-empty" id="talk-empty">
+          <p class="talk-empty-lead">No discussions yet.</p>
+          <p>Be the first to start a thread above. ↑</p>
+        </div>
+
+        
+      </div>
+    </div><!-- end #pg-talk -->
+
+  </div><!-- end .wrap -->
+
+  <script src="js/main.js"></script>
+  <script src="js/talk.js"></script>
+
+</body>
+</html>
