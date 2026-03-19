@@ -261,3 +261,43 @@ window.addEventListener('scroll', () => {
   const percent = (window.scrollY / (documentHeight - window.innerHeight)) * 100;
   indicator.style.width = percent + '%';
 }, { passive: true });
+
+
+/* ═══════════════════════════════════════════════════
+   PROFESSIONAL MODE TOGGLE
+═══════════════════════════════════════════════════ */
+
+(function initCVMode() {
+  const html    = document.documentElement;
+  const modeBtn = document.getElementById('mode-btn');
+
+  if (!modeBtn) return;
+
+  if (localStorage.getItem('devwiki_mode') === 'cv') {
+    html.dataset.mode = 'cv';
+    modeBtn.textContent = 'Wiki Mode';
+  }
+
+  modeBtn.addEventListener('click', () => {
+    const isCV = html.dataset.mode === 'cv';
+
+    if (isCV) {
+      // Switch back to wiki mode
+      delete html.dataset.mode;
+      modeBtn.textContent = 'Professional Mode';
+      localStorage.setItem('devwiki_mode', 'wiki');
+
+      const articleTab = document.querySelector('.tab[data-tab="article"]');
+      switchTab('article', articleTab);
+    } else {
+      html.dataset.mode = 'cv';
+      modeBtn.textContent = 'Wiki Mode';
+      localStorage.setItem('devwiki_mode', 'cv');
+
+      const articleTab = document.querySelector('.tab[data-tab="article"]');
+      switchTab('article', articleTab);
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+})();
