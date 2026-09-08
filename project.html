@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading… — DevWiki</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/enhancements.css">
+</head>
+<body>
+
+  <header class="hdr">
+    <div class="hdr-inner">
+      <a class="logo" href="index.html">
+        <div class="logo-orb">{∅}</div>
+        <div>
+          <div class="logo-txt">DevWiki</div>
+          <div class="logo-sub">the free developer encyclopedia</div>
+        </div>
+      </a>
+      <div class="hdr-tools">
+        <button class="hdr-btn" id="theme-btn">Classic Mode</button>
+      </div>
+    </div>
+    <div class="indicator"></div>
+  </header>
+
+  <div class="wrap">
+
+    <div class="proj-back"><a href="index.html#projects">← Return to main article</a></div>
+
+    <div class="banner b-stub" id="not-found-banner" hidden>
+      <div class="bico">🗑</div>
+      <div>
+        <b>This page does not exist.</b>
+        The article you requested may have been moved, deleted, or never written.
+        <a href="index.html">Return to the main article</a>.
+      </div>
+    </div>
+
+    <div id="proj-content" class="grid">
+      <main>
+        <h1 class="wiki-title" id="proj-title"></h1>
+        <div class="tags" id="proj-tags"></div>
+        <div class="wc" id="proj-desc"></div>
+        <div id="proj-highlights"></div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="infobox">
+          <div class="ib-title" id="proj-infobox-title"></div>
+          <table>
+            <tr><td>Stack</td><td id="ib-stack"></td></tr>
+            <tr><td>Repository</td><td id="ib-repo"></td></tr>
+            <tr><td>Stats</td><td id="ib-stats">—</td></tr>
+          </table>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/projects-data.js"></script>
+  <script src="js/github-stats.js"></script>
+  <script src="js/project-page.js"></script>
+
+</body>
+</html>

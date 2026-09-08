@@ -18,6 +18,9 @@
 
   <!-- CV Mode Styles -->
   <link rel="stylesheet" href="css/cv-mode.css">
+
+  <!-- Hover previews, GitHub badges, project page styling -->
+  <link rel="stylesheet" href="css/enhancements.css">
 </head>
 <body>
 
@@ -164,10 +167,11 @@
           <!-- CV VERSION -->
           <div class="cv-only wc">
             <p>
-              Computer Science student at MMCM (3rd year, 2023–present) focused on backend systems,
-              AI/ML, and AWS. Consistent President's Lister (GPA 1.25+), CHED and KCPFI scholar,
-              and AWS Certified AI Practitioner. Experienced in project coordination, documentation,
-              and student leadership across multiple organizations.
+              Computer Science student with experience leading technical projects, coordinating
+              cross-functional teams, and applying technology to solve business problems. Skilled
+              in project coordination, stakeholder communication, AI workflow automation, and
+              cloud technologies. Seeking to contribute analytical thinking and organizational
+              skills in technology-driven environments.
             </p>
           </div>
 
@@ -180,6 +184,7 @@
             <div id="toc-body">
               <ol>
                 <li><a href="#projects">Notable projects</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
                 <li>
                   <a href="#leadership">Leadership &amp; organizational involvement</a>
@@ -192,7 +197,10 @@
                   <a href="#skills">Technical skills</a>
                   <ol>
                     <li><a href="#skills">Programming languages</a></li>
-                    <li><a href="#skills">Tools &amp; platforms</a></li>
+                    <li><a href="#skills">Frameworks &amp; technologies</a></li>
+                    <li><a href="#skills">Databases &amp; ORM</a></li>
+                    <li><a href="#skills">Automation &amp; CRM</a></li>
+                    <li><a href="#skills">Cloud &amp; developer tools</a></li>
                     <li><a href="#skills">Knowledge areas</a></li>
                   </ol>
                 </li>
@@ -244,11 +252,110 @@
             <hr>
           </div>
 
+          <!-- AskWhiz -->
+          <h3 class="ssh proj-heading">
+            <a href="project.html?slug=askwhiz" data-slug="askwhiz">AskWhiz — Institutional Knowledge Chatbot</a>
+          </h3>
+          <div class="wiki-only wc">
+            <p>
+              Morden's undergraduate thesis: a retrieval-augmented generation (RAG) chatbot
+              that answers institutional questions for MMCM, combining vector search over
+              indexed institutional documents with the Claude API for response generation,
+              evaluated using RAGAS.
+            </p>
+            <p>
+              <span class="sk">FastAPI</span>
+              <span class="sk">Amazon OpenSearch</span>
+              <span class="sk">Claude API</span>
+              <span class="sk">FAISS</span>
+              <span class="sk">RAGAS</span>
+              <span class="sk">Render</span>
+            </p>
+          </div>
+          <div class="cv-only wc">
+            <p>Undergraduate thesis: a RAG chatbot deployed for MMCM, built on FastAPI with OpenSearch/FAISS retrieval and the Claude API.</p>
+            <p>
+              <span class="sk">FastAPI</span>
+              <span class="sk">Amazon OpenSearch</span>
+              <span class="sk">Claude API</span>
+              <span class="sk">FAISS</span>
+              <span class="sk">RAGAS</span>
+              <span class="sk">Render</span>
+            </p>
+          </div>
+
+          <!-- EIZOU Creatives Production Tracker -->
+          <h3 class="ssh proj-heading">
+            <a href="project.html?slug=eizou-tracker" data-slug="eizou-tracker">EIZOU Creatives — Production Tracker</a>
+          </h3>
+          <div class="wiki-only wc">
+            <p>
+              A full-stack internal tool built for Eizou Films, a content production agency,
+              to manage the entire lifecycle of client deliverables — from planning through
+              production, review, and publishing across social platforms. Replaces what would
+              otherwise be a spreadsheet: tracks monthly deliverable quotas per client, a
+              seven-stage production pipeline, editor workload, deadlines, revision rounds, and
+              multi-platform publish status.
+            </p>
+            <p>
+              <span class="sk">React</span>
+              <span class="sk">TypeScript</span>
+              <span class="sk">Node.js</span>
+              <span class="sk">Express</span>
+              <span class="sk">PostgreSQL</span>
+              <span class="sk">Prisma</span>
+            </p>
+          </div>
+          <div class="cv-only wc">
+            <p>Full-stack production tracker for a content agency — manages client deliverables, editor workload, deadlines, and multi-platform publish status.</p>
+            <p>
+              <span class="sk">React</span>
+              <span class="sk">TypeScript</span>
+              <span class="sk">Node.js</span>
+              <span class="sk">Express</span>
+              <span class="sk">PostgreSQL</span>
+              <span class="sk">Prisma</span>
+            </p>
+          </div>
+
+          <!-- Tasa -->
+          <h3 class="ssh proj-heading">
+            <a href="project.html?slug=tasa" data-slug="tasa">Tasa — Coffee-Life Tracker</a>
+            <a class="proj-repo-link" href="https://github.com/Joooban/Tasa" target="_blank" rel="noopener">GitHub ↗</a>
+          </h3>
+          <div class="wiki-only wc">
+            <p>
+              A mobile app for logging every cup of coffee — home-brewed or bought at a café —
+              as a lightweight, judgment-free diary, built specifically for the Philippine
+              market with peso-denominated pricing and PH café drinks (Spanish latte, ube latte,
+              sachet 3-in-1) alongside home-brew methods. Originally prototyped as a static HTML
+              mockup before being rebuilt as a real, installable Flutter app, with an
+              Instagram-style feed, a "Rain Check" streak safety net, a shareable
+              Wrapped-style monthly summary, and 46+ badges — fully local, with no backend or
+              accounts.
+            </p>
+            <p>
+              <span class="sk">Flutter</span>
+              <span class="sk">Dart</span>
+              <span class="sk">Riverpod</span>
+              <span class="sk">SQLite</span>
+              <span class="gh-badge" data-badge-slug="tasa"></span>
+            </p>
+          </div>
+          <div class="cv-only wc">
+            <p>Flutter app for tracking coffee consumption and spend in the Philippines, with streaks, badges, and shareable monthly summaries — fully local, no backend.</p>
+            <p>
+              <span class="sk">Flutter</span>
+              <span class="sk">Dart</span>
+              <span class="sk">Riverpod</span>
+              <span class="sk">SQLite</span>
+            </p>
+          </div>
+
           <!-- Margatron -->
-          <h3 class="ssh">
-            <a href="https://github.com/vennDiagramm/Group-4-System-Margatron-Admissions-Buddy" target="_blank" rel="noopener">
-              Margatron — Admissions Buddy Chatbot
-            </a>
+          <h3 class="ssh proj-heading">
+            <a href="project.html?slug=margatron" data-slug="margatron">Margatron — Admissions Buddy Chatbot</a>
+            <a class="proj-repo-link" href="https://github.com/vennDiagramm/Group-4-System-Margatron-Admissions-Buddy" target="_blank" rel="noopener">GitHub ↗</a>
           </h3>
           <div class="wiki-only wc">
             <p>
@@ -261,6 +368,7 @@
               <span class="sk">Streamlit</span>
               <span class="sk">Gemini API</span>
               <span class="sk">NLTK</span>
+              <span class="gh-badge" data-badge-slug="margatron"></span>
             </p>
           </div>
           <div class="cv-only wc">
@@ -274,10 +382,9 @@
           </div>
 
           <!-- MMCMate -->
-          <h3 class="ssh">
-            <a href="https://github.com/vennDiagramm/MMCMate_An_AI_Chatbot_for_School_Policy_Assistance" target="_blank" rel="noopener">
-              MMCMate Chatbot
-            </a>
+          <h3 class="ssh proj-heading">
+            <a href="project.html?slug=mmcmate" data-slug="mmcmate">MMCMate+ Chatbot</a>
+            <a class="proj-repo-link" href="https://github.com/vennDiagramm/MMCMate_An_AI_Chatbot_for_School_Policy_Assistance" target="_blank" rel="noopener">GitHub ↗</a>
           </h3>
           <div class="wiki-only wc">
             <p>
@@ -286,115 +393,173 @@
               and the
               <a href="https://ai.google.dev" target="_blank" rel="noopener">Gemini API</a>,
               with an <a href="https://sqlite.org" target="_blank" rel="noopener">SQLite</a>
-              backend. The system provides MMCM students with rapid access to
-              institutional information through a conversational interface.
+              backend and a Node.js service layer. The system provides MMCM students with rapid
+              access to institutional information through a conversational interface, with
+              multilingual support and an admin-managed knowledge base.
             </p>
             <p>
               <span class="sk">Python</span>
               <span class="sk">Streamlit</span>
               <span class="sk">Gemini API</span>
+              <span class="sk">Node.js</span>
               <span class="sk">SQLite</span>
+              <span class="gh-badge" data-badge-slug="mmcmate"></span>
             </p>
           </div>
           <div class="cv-only wc">
-            <p>Campus AI assistant for instant access to MMCM institutional info via conversational interface.</p>
+            <p>Campus AI assistant for instant access to MMCM institutional info, with multilingual support and an admin-managed knowledge base.</p>
             <p>
               <span class="sk">Python</span>
               <span class="sk">Streamlit</span>
               <span class="sk">Gemini API</span>
+              <span class="sk">Node.js</span>
               <span class="sk">SQLite</span>
             </p>
           </div>
 
           <!-- MPM Forecasting -->
-          <h3 class="ssh">
-            <a href="https://github.com/Lumerurin/MPM-regional-forecasting-app" target="_blank" rel="noopener">
-              MPM Regional Forecasting Application
-            </a>
+          <h3 class="ssh proj-heading">
+            <a href="project.html?slug=mpm-forecasting" data-slug="mpm-forecasting">MPM Regional Forecasting Application</a>
+            <a class="proj-repo-link" href="https://github.com/Lumerurin/MPM-regional-forecasting-app" target="_blank" rel="noopener">GitHub ↗</a>
           </h3>
           <div class="wiki-only wc">
             <p>
-              A regional economic forecasting tool integrating
+              A regional household income forecasting tool integrating
               <a href="https://facebook.github.io/prophet/" target="_blank" rel="noopener">Meta's Prophet library</a>
-              and regression models to analyze and project economic indicators
-              across regions.
+              and Scikit-learn regression models, applied to government datasets to
+              analyze and project economic indicators across regions.
             </p>
             <p>
               <span class="sk">Python</span>
               <span class="sk">Prophet</span>
-              <span class="sk">Regression models</span>
+              <span class="sk">Scikit-learn</span>
+              <span class="sk">Pandas</span>
               <span class="sk">Data visualization</span>
+              <span class="gh-badge" data-badge-slug="mpm-forecasting"></span>
             </p>
           </div>
           <div class="cv-only wc">
-            <p>Regional economic forecasting tool using Meta Prophet and regression models to project key indicators.</p>
+            <p>Regional household income forecasting tool applying Meta Prophet and regression models to government datasets.</p>
             <p>
               <span class="sk">Python</span>
               <span class="sk">Streamlit</span>
               <span class="sk">Prophet</span>
-              <span class="sk">Regression models</span>
-              <span class="sk">Data visualization</span>
+              <span class="sk">Scikit-learn</span>
+              <span class="sk">Pandas</span>
             </p>
           </div>
 
           <!-- Lylas Inventory -->
-          <h3 class="ssh">
-            <a href="https://github.com/Lumerurin/Lylas-Smart-Inventory-Sales" target="_blank" rel="noopener">
-              Lylas Smart Inventory Sales
-            </a>
+          <h3 class="ssh proj-heading">
+            <a href="project.html?slug=lylas-inventory" data-slug="lylas-inventory">Lylas Smart Inventory Sales</a>
+            <a class="proj-repo-link" href="https://github.com/Lumerurin/Lylas-Smart-Inventory-Sales" target="_blank" rel="noopener">GitHub ↗</a>
           </h3>
           <div class="wiki-only wc">
             <p>
-              An item tracking platform featuring stock management functionality
+              A web-based item tracking platform featuring stock management functionality
               and automated alert systems for low-stock threshold detection.
             </p>
             <p>
-              <span class="sk">Backend systems</span>
-              <span class="sk">Database management</span>
-              <span class="sk">Automated alerting</span>
+              <span class="sk">Node.js</span>
+              <span class="sk">JavaScript</span>
+              <span class="sk">SQL</span>
+              <span class="gh-badge" data-badge-slug="lylas-inventory"></span>
             </p>
           </div>
           <div class="cv-only wc">
-            <p>Inventory and sales tracking platform with automated low-stock alerts.</p>
+            <p>Web-based inventory and sales tracking platform with automated low-stock alerts.</p>
             <p>
-              <span class="sk">Backend systems</span>
-              <span class="sk">Database management</span>
-              <span class="sk">Automated alerting</span>
+              <span class="sk">Node.js</span>
+              <span class="sk">JavaScript</span>
+              <span class="sk">SQL</span>
             </p>
           </div>
 
           <!-- Kitchen Sentinel -->
-          <h3 class="ssh">
-            <a href="https://github.com/vennDiagramm/Kitchen_Sentinel_Smart_Stove_and_Gas_Leak_Alert_System" target="_blank" rel="noopener">
-              Kitchen Sentinel — Smart Stove &amp; Gas Leak Alert System
-            </a>
+          <h3 class="ssh proj-heading">
+            <a href="project.html?slug=kitchen-sentinel" data-slug="kitchen-sentinel">Kitchen Sentinel — Smart Stove &amp; Gas Leak Alert System</a>
+            <a class="proj-repo-link" href="https://github.com/vennDiagramm/Kitchen_Sentinel_Smart_Stove_and_Gas_Leak_Alert_System" target="_blank" rel="noopener">GitHub ↗</a>
           </h3>
           <div class="wiki-only wc">
             <p>
               A mobile companion app for real-time kitchen hazard detection targeting
               elderly users and caregivers. Delivers persistent push notifications for
-              gas leaks, flame presence, and absent motion, paired with an ESP32
-              microcontroller reporting live sensor data to Firebase every second.
+              gas leaks, flame presence, and absent motion, paired with an ESP32 +
+              Arduino sensor node — an MQ-2 gas sensor and a PIR motion sensor —
+              reporting live data to Firebase every second.
             </p>
             <p>
               <span class="sk">React Native</span>
               <span class="sk">Firebase</span>
               <span class="sk">ESP32</span>
+              <span class="sk">Arduino</span>
+              <span class="sk">MQ-2</span>
+              <span class="sk">PIR</span>
               <span class="sk">IoT</span>
               <span class="sk">Expo</span>
+              <span class="gh-badge" data-badge-slug="kitchen-sentinel"></span>
             </p>
           </div>
           <div class="cv-only wc">
-            <p>Mobile app for real-time kitchen hazard detection (gas leaks, flame, motion) with ESP32 + Firebase live sensor reporting.</p>
+            <p>Mobile app for real-time kitchen hazard detection (gas leaks, flame, motion) with an ESP32 + Arduino sensor node reporting to Firebase.</p>
             <p>
               <span class="sk">React Native</span>
               <span class="sk">Firebase</span>
               <span class="sk">ESP32</span>
+              <span class="sk">Arduino</span>
+              <span class="sk">MQ-2</span>
+              <span class="sk">PIR</span>
               <span class="sk">IoT</span>
               <span class="sk">Expo</span>
             </p>
           </div>
           <hr class="wiki-only">
+          </section>
+
+          <!-- ─── EXPERIENCE ─── -->
+          <section id="experience" class="fi">
+            <div class="sh">
+              Experience
+              <span class="el">[edit]</span>
+            </div>
+
+            <!-- WIKI VERSION -->
+            <div class="wiki-only wc">
+              <p>
+                Since June 2026, Morden has served as <b>IT/Business Development Associate</b>
+                at Eizou Films in Davao City, a content production startup,
+                splitting his time between technical delivery and client acquisition. On the
+                business development side: generating and qualifying leads through outbound
+                prospecting and market research, managing CRM records and sales pipelines via
+                <span class="sk">GoHighLevel</span>, and assisting with marketing strategy,
+                content planning, and client communications.
+              </p>
+              <p>
+                On the technical side, he built and shipped a WordPress website for a UK-based
+                client, <a href="https://atlaswasteandremovals.co.uk/" target="_blank" rel="noopener">
+                Atlas Waste and Removals</a>, managing domain connection through Squarespace —
+                a project that doubled as a crash course in WordPress itself — and designed and
+                developed the <a href="#projects">EIZOU Creatives Production Tracker</a>, a
+                full-stack internal tool now used by the agency to run its entire content
+                production pipeline.
+              </p>
+            </div>
+
+            <!-- CV VERSION -->
+            <div class="cv-only wc">
+              <ul>
+                <li>
+                  <b>IT/Business Development Associate</b> — Eizou Films,
+                  Davao City, PH · June 2026–present.
+                  <ul>
+                    <li>Generated and qualified leads through outbound prospecting and market research.</li>
+                    <li>Managed CRM records and sales pipelines using GoHighLevel.</li>
+                    <li>Assisted in marketing strategy, content planning, and client communications.</li>
+                    <li>Built a WordPress site for a UK-based client (Atlas Waste and Removals) and the company's internal production-tracking system (React/TypeScript, Node/Express, PostgreSQL).</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </section>
 
           <!-- ─── EDUCATION ─── -->
@@ -528,9 +693,9 @@
             <h3 class="ssh">Programming languages</h3>
             <div class="wc">
               <p>
-                Morden's primary languages include Python, Java, C++, C#, and
-                JavaScript, along with Node.js and React for application development.
-                Database interaction is handled through SQL.
+                Morden's primary languages include Python, Java, C++, C#, JavaScript,
+                and TypeScript, with Dart for mobile development. Database interaction
+                is handled through SQL.
               </p>
               <p>
                 <span class="sk">Python</span>
@@ -538,28 +703,72 @@
                 <span class="sk">C++</span>
                 <span class="sk">C#</span>
                 <span class="sk">JavaScript</span>
-                <span class="sk">Node.js</span>
-                <span class="sk">React</span>
+                <span class="sk">TypeScript</span>
                 <span class="sk">SQL</span>
+                <span class="sk">Dart</span>
                 <span class="sk">Move</span>
                 <span class="sk">Sui</span>
               </p>
             </div>
 
-            <h3 class="ssh">Tools &amp; platforms</h3>
+            <h3 class="ssh">Frameworks &amp; technologies</h3>
             <div class="wc">
               <p>
-                His toolchain spans version control, cloud infrastructure, content
-                management, and productivity tooling. He additionally holds video
-                editing and transcription capabilities.
+                <span class="sk">Node.js</span>
+                <span class="sk">Express.js</span>
+                <span class="sk">React</span>
+                <span class="sk">Flutter</span>
+                <span class="sk">Riverpod</span>
+              </p>
+            </div>
+
+            <h3 class="ssh">Databases &amp; ORM</h3>
+            <div class="wc">
+              <p>
+                <span class="sk">SQLite</span>
+                <span class="sk">PostgreSQL</span>
+                <span class="sk">Prisma ORM</span>
+              </p>
+            </div>
+
+            <h3 class="ssh">Automation &amp; CRM</h3>
+            <div class="wc">
+              <p>
+                Picked up through business development work at Eizou Films —
+                lead workflows, pipelines, and client records rather than pure
+                engineering, but tooling he's genuinely hands-on with.
               </p>
               <p>
+                <span class="sk">n8n</span>
+                <span class="sk">GoHighLevel</span>
+                <span class="sk">CRM Management</span>
+              </p>
+            </div>
+
+            <h3 class="ssh">Cloud &amp; developer tools</h3>
+            <div class="wc">
+              <p>
+                <span class="sk">AWS Cloud Foundations</span>
                 <span class="sk">Git / GitHub</span>
-                <span class="sk">AWS</span>
+                <span class="sk">Netlify</span>
+                <span class="sk">Render</span>
+              </p>
+            </div>
+
+            <h3 class="ssh">Business &amp; productivity</h3>
+            <div class="wc">
+              <p>
+                <span class="sk">MS Office 365</span>
+                <span class="sk">Google Workspace</span>
                 <span class="sk">WordPress</span>
+              </p>
+            </div>
+
+            <h3 class="ssh">Creative tools</h3>
+            <div class="wc">
+              <p>
                 <span class="sk">Canva</span>
                 <span class="sk">CapCut</span>
-                <span class="sk">MS Office 365</span>
               </p>
             </div>
 
@@ -575,14 +784,19 @@
             <div class="wc">
               <p>
                 Morden holds professional proficiency or higher in <b>English</b>,
-                <b>Filipino</b>, and <b>Cebuano</b>. He types at 90–120 WPM.<sup
+                <b>Filipino</b>, and <b>Cebuano</b>. He additionally holds video
+                editing and audio/video transcription capabilities, and types at
+                90–120 WPM.<sup
                   class="cn"
                   data-tip="See Talk page. Still being debated."
                 >[disputed]</sup>
               </p>
+              <p>
+                <span class="sk">Video Editing</span>
+                <span class="sk">Audio/Video Transcription</span>
+              </p>
             </div>
 
-            
           </section>
 
           <!-- ─── CERTIFICATIONS ─── -->
@@ -600,6 +814,9 @@
                   <a href="https://www.credly.com/badges/d5e124dd-1a90-4f1b-9f56-d35e4745ba26/public_url" target="_blank" rel="noopener">
                     AWS Academy Graduate
                   </a> — Generative AI Foundations <em>(Training Badge)</em>
+                </li>
+                <li>
+                  AWS Academy Graduate — Cloud Operations <em>(Training Badge)</em>
                 </li>
                 <li>
                   <a href="https://www.credly.com/badges/0c46c37b-1deb-4f5a-896b-bdbd3ce9a0a8/public_url" target="_blank" rel="noopener">
@@ -659,7 +876,7 @@
                     Microsoft Office Specialist: Excel Associate
                   </a> (Office 2019)
                 </li>
-                <li> <a href="https://www.credly.com/badges/d5e124dd-1a90-4f1b-9f56-d35e4745ba26/public_url" target="_blank" rel="noopener">AWS Academy Graduate </a> — Cloud Foundations · Generative AI Foundations</li>
+                <li> <a href="https://www.credly.com/badges/d5e124dd-1a90-4f1b-9f56-d35e4745ba26/public_url" target="_blank" rel="noopener">AWS Academy Graduate </a> — Cloud Foundations · Generative AI Foundations · Cloud Operations</li>
                 <li><a href="https://drive.google.com/file/d/16uIuwBFpH47ACPxgPhrv8EdRGA4KSyky/view?usp=drive_link" target="_blank" rel="noopener">
                     Sui Builders Program — Davao
                   </a>
@@ -792,8 +1009,12 @@
                   <a href="https://mcm.edu.ph" target="_blank" rel="noopener">MMCM</a>
                 </td>
               </tr>
-              <tr><td>Year</td><td>3rd year (2023–present)</td></tr>
-              <tr><td>Focus</td><td>Backend · AI/ML · AWS · IT </td></tr>
+              <tr><td>Year</td><td>4th year (2023–present)</td></tr>
+              <tr><td>Focus</td><td>Backend · AI/ML · Full-Stack · BizDev</td></tr>
+              <tr>
+                <td>Employer</td>
+                <td><a href="#experience">Eizou Films</a> (2026–present)</td>
+              </tr>
               <tr>
                 <td>GPA</td>
                 <td class="ib-highlight">1.25+ · President's List</td>
@@ -815,6 +1036,27 @@
               <a href="mailto:jvanmorden@gmail.com">Email</a> ·
               <a href="assets/Resume.pdf" target="_blank" rel="noopener">Résumé</a>
 
+            </div>
+          </div>
+
+          <!-- Live GitHub stats -->
+          <div class="stats-box">
+            <div class="sb-title">GitHub stats <span style="font-weight:400; color:var(--text3); font-size:10px;">(live)</span></div>
+            <div class="sr">
+              <span>Public repos</span>
+              <span id="gh-repos">—</span>
+            </div>
+            <div class="sr">
+              <span>Followers</span>
+              <span id="gh-followers">—</span>
+            </div>
+            <div class="sr">
+              <span>Total stars</span>
+              <span id="gh-stars">—</span>
+            </div>
+            <div class="sr">
+              <span>On GitHub since</span>
+              <span id="gh-since">—</span>
             </div>
           </div>
 
@@ -920,6 +1162,9 @@
 
   <script src="js/main.js"></script>
   <script src="js/talk.js"></script>
+  <script src="js/projects-data.js"></script>
+  <script src="js/github-stats.js"></script>
+  <script src="js/preview.js"></script>
 
 </body>
 </html>
