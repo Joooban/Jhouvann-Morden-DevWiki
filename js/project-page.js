@@ -36,6 +36,19 @@
     `;
   }
 
+  // Optional extra sections: { heading, items: [...] } or { heading, table: { head, rows } }
+  if (project.sections && project.sections.length) {
+    highlightsWrap.insertAdjacentHTML('beforeend', project.sections.map(sec => {
+      let body = '';
+      if (sec.items) body = `<ul>${sec.items.map(i => `<li>${i}</li>`).join('')}</ul>`;
+      if (sec.table) {
+        body = `<table class="htable"><thead><tr>${sec.table.head.map(h => `<th>${h}</th>`).join('')}</tr></thead>` +
+          `<tbody>${sec.table.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+      }
+      return `<h2 class="sh">${sec.heading}</h2><div class="wc">${body}</div>`;
+    }).join(''));
+  }
+
   document.getElementById('proj-infobox-title').textContent = project.title;
   document.getElementById('ib-stack').textContent = project.tags.join(' · ');
 
@@ -44,6 +57,13 @@
     repoCell.innerHTML = `<a href="https://github.com/${project.repo}" target="_blank" rel="noopener">View on GitHub ↗</a>`;
   } else {
     repoCell.textContent = project.liveNote || 'Private / internal tool';
+  }
+
+  const liveCell = document.getElementById('ib-live');
+  if (project.live) {
+    liveCell.innerHTML = `<a href="${project.live}" target="_blank" rel="noopener">${project.liveLabel || 'Live demo'} ↗</a>`;
+  } else {
+    liveCell.closest('tr').hidden = true;
   }
 
   // Live GitHub badge slot — picked up by github-stats.js
